@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       initialRoute: RouteManager.loginPage,
       onGenerateRoute: RouteManager.generateRoute,
       theme: ThemeData(
+        appBarTheme: AppBarTheme(elevation: 0, color: Colors.transparent),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
             unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
             selectedLabelStyle: TextStyle(fontFamily: 'Poppins')),
