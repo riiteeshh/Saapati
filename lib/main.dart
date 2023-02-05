@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: RouteManager.generateRoute,
       theme: ThemeData(
         navigationBarTheme: const NavigationBarThemeData(
-            indicatorColor: Colors.red,
+            indicatorColor: Colors.blue,
             backgroundColor: Colors.transparent,
             labelTextStyle: MaterialStatePropertyAll(TextStyle(
                 fontWeight: FontWeight.normal,
