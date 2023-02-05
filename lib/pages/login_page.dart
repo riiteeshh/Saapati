@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:saapati_app/components/social_media_circle.dart';
+import 'package:saapati_app/routes/routes.dart';
 import 'package:saapati_app/static/form_decoration.dart';
 import 'package:saapati_app/validator/validator.dart';
 
@@ -121,7 +122,10 @@ class _LoginPageState extends State<LoginPage> {
                         height: MediaQuery.of(context).size.height * 0.065,
                         child: ElevatedButton(
                             onPressed: () {
-                              if (_formKey.currentState!.validate()) {}
+                              if (_formKey.currentState!.validate()) {
+                                Navigator.pushReplacementNamed(
+                                    context, RouteManager.mainLayoutPage);
+                              }
                             },
                             child: const Text(
                               'Login',
