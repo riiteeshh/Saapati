@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:badges/badges.dart' as badges;
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:saapati_app/components/carousel.dart';
 import 'package:saapati_app/components/home_app_bar.dart';
+import 'package:saapati_app/components/menu_items_class.dart';
 import 'package:saapati_app/routes/routes.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,6 +14,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final List<MenuItems> _menuItems = [
+    MenuItems('Load Money', Icons.wallet),
+    MenuItems('Request Loan', Icons.request_quote_rounded),
+    MenuItems('Ping Recieve', Icons.handshake_rounded),
+    MenuItems('Statistics', Icons.stacked_bar_chart_rounded),
+    MenuItems('My Cards', EvaIcons.creditCard),
+    MenuItems('Vouchers', Icons.card_giftcard_rounded),
+  ];
   List _imageData = [
     'https://cdn.pixabay.com/photo/2018/06/17/20/35/chain-3481377_960_720.jpg',
     'https://cdn.pixabay.com/photo/2014/11/13/06/12/boy-529067_960_720.jpg'
@@ -23,16 +34,28 @@ class _HomePageState extends State<HomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              IconButton(
-                  onPressed: () {
-                    Navigator.popUntil(context, (route) => route.isFirst);
-                    Navigator.pushReplacementNamed(
-                        context, RouteManager.loginPage);
-                  },
-                  icon: Icon(
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 24),
+                child: badges.Badge(
+                  badgeStyle: badges.BadgeStyle(
+                    badgeColor: Colors.blue.withOpacity(0.9),
+                  ),
+                  badgeAnimation: badges.BadgeAnimation.scale(
+                    animationDuration: Duration(seconds: 1),
+                    colorChangeAnimationDuration: Duration(seconds: 1),
+                    loopAnimation: true,
+                    curve: Curves.fastOutSlowIn,
+                    colorChangeAnimationCurve: Curves.easeInCubic,
+                  ),
+                  ignorePointer: false,
+                  showBadge: true,
+                  child: Icon(
                     Icons.notifications,
+                    size: 25,
                     color: Colors.grey[400],
-                  ))
+                  ),
+                ),
+              ),
             ],
           )
         ],
@@ -66,30 +89,164 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.blue.withOpacity(0.9),
                             width: MediaQuery.of(context).size.width,
                             height: MediaQuery.of(context).size.height * 0.23,
-                            child: Column(children: [
-                              Container(
-                                margin: EdgeInsets.only(left: 10, top: 15),
-                                alignment: Alignment.topLeft,
-                                child: const Text(
-                                  'Total Balance',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'Poppins',
-                                      fontSize: 12),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        Container(
+                                          margin: const EdgeInsets.only(
+                                              left: 10, top: 15),
+                                          alignment: Alignment.topLeft,
+                                          child: const Text(
+                                            'Total Balance',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Poppins',
+                                                fontSize: 12),
+                                          ),
+                                        ),
+                                        Container(
+                                          margin:
+                                              const EdgeInsets.only(left: 20),
+                                          alignment: Alignment.topLeft,
+                                          child: const Text(
+                                            'Rs.50000',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Poppins',
+                                                fontSize: 20),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        Container(
+                                          margin: const EdgeInsets.only(
+                                              right: 20, top: 15),
+                                          alignment: Alignment.topLeft,
+                                          child: const Text(
+                                            'Reward Points',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Poppins',
+                                                fontSize: 12),
+                                          ),
+                                        ),
+                                        Container(
+                                          margin:
+                                              const EdgeInsets.only(right: 10),
+                                          alignment: Alignment.topLeft,
+                                          child: const Text(
+                                            'Rs.50000',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Poppins',
+                                                fontSize: 20),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 10),
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  'Rs.50000',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'Poppins',
-                                      fontSize: 20),
+                                SizedBox(
+                                  height: MediaQuery.of(context).size.height *
+                                      0.035,
                                 ),
-                              ),
-                            ]),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Container(
+                                                margin: const EdgeInsets.only(
+                                                    top: 15),
+                                                child: const Icon(
+                                                  Icons.arrow_downward,
+                                                  color: Colors.red,
+                                                )),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Container(
+                                              margin: const EdgeInsets.only(
+                                                  top: 15),
+                                              child: const Text(
+                                                'To Pay',
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 12),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Container(
+                                          margin:
+                                              const EdgeInsets.only(left: 20),
+                                          alignment: Alignment.topLeft,
+                                          child: const Text(
+                                            'Rs.50000',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Poppins',
+                                                fontSize: 20),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Container(
+                                                margin: const EdgeInsets.only(
+                                                    top: 15),
+                                                child: const Icon(
+                                                  Icons.arrow_upward,
+                                                  color: Colors.yellow,
+                                                )),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Container(
+                                              margin: const EdgeInsets.only(
+                                                  top: 15, right: 20),
+                                              child: const Text(
+                                                'To Recieve',
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontFamily: 'Poppins',
+                                                    fontSize: 12),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Container(
+                                          margin:
+                                              const EdgeInsets.only(right: 10),
+                                          alignment: Alignment.topLeft,
+                                          child: const Text(
+                                            'Rs.50000',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: 'Poppins',
+                                                fontSize: 20),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -115,7 +272,7 @@ class _HomePageState extends State<HomePage> {
                   height: MediaQuery.of(context).size.height * 0.4,
                   child: GridView.builder(
                       physics: NeverScrollableScrollPhysics(),
-                      itemCount: 6,
+                      itemCount: _menuItems.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3, childAspectRatio: 0.9),
                       itemBuilder: (context, index) {
@@ -128,7 +285,7 @@ class _HomePageState extends State<HomePage> {
                                 radius: 30,
                                 backgroundColor: Colors.lightBlue,
                                 child: Icon(
-                                  Icons.wallet,
+                                  _menuItems[index].menuIcon,
                                   color: Colors.white,
                                   size: 40,
                                 ),
@@ -138,7 +295,8 @@ class _HomePageState extends State<HomePage> {
                               ),
                               Container(
                                   child: Text(
-                                'Load Money',
+                                _menuItems[index].menuName,
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontFamily: 'Poppins', color: Colors.blue),
                               ))

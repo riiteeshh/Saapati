@@ -13,13 +13,13 @@ class _HomeAppBarState extends State<HomeAppBar> {
     return SafeArea(
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Container(
             alignment: Alignment.topLeft,
-            margin: EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            child: const Text(
               'Hello!',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -29,8 +29,8 @@ class _HomeAppBarState extends State<HomeAppBar> {
           ),
           Container(
             alignment: Alignment.topLeft,
-            margin: EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            child: const Text(
               'Ritesh Pandey',
               style: TextStyle(
                   fontFamily: 'Poppins', fontSize: 15, color: Colors.blue),
