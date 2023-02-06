@@ -80,6 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 10),
                         child: TextFormField(
+                          style: TextStyle(fontSize: 15),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           validator: (value) => validateEmail(value),
                           decoration: formdecoration(
@@ -92,6 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 10),
                         child: TextFormField(
+                          style: TextStyle(fontSize: 15),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           validator: (value) => validatePassword(value),
                           obscureText: true,

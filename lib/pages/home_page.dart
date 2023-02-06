@@ -34,25 +34,32 @@ class _HomePageState extends State<HomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 24),
-                child: badges.Badge(
-                  badgeStyle: badges.BadgeStyle(
-                    badgeColor: Colors.blue.withOpacity(0.9),
-                  ),
-                  badgeAnimation: badges.BadgeAnimation.scale(
-                    animationDuration: Duration(seconds: 1),
-                    colorChangeAnimationDuration: Duration(seconds: 1),
-                    loopAnimation: true,
-                    curve: Curves.fastOutSlowIn,
-                    colorChangeAnimationCurve: Curves.easeInCubic,
-                  ),
-                  ignorePointer: false,
-                  showBadge: true,
-                  child: Icon(
-                    Icons.notifications,
-                    size: 25,
-                    color: Colors.grey[400],
+              GestureDetector(
+                onTap: () {
+                  Navigator.popUntil(context, (route) => route.isFirst);
+                  Navigator.pushReplacementNamed(
+                      context, RouteManager.loginPage);
+                },
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 24),
+                  child: badges.Badge(
+                    badgeStyle: badges.BadgeStyle(
+                      badgeColor: Colors.blue.withOpacity(0.9),
+                    ),
+                    badgeAnimation: badges.BadgeAnimation.scale(
+                      animationDuration: Duration(seconds: 1),
+                      colorChangeAnimationDuration: Duration(seconds: 1),
+                      loopAnimation: true,
+                      curve: Curves.fastOutSlowIn,
+                      colorChangeAnimationCurve: Curves.easeInCubic,
+                    ),
+                    ignorePointer: false,
+                    showBadge: true,
+                    child: Icon(
+                      Icons.notifications,
+                      size: 25,
+                      color: Colors.grey[400],
+                    ),
                   ),
                 ),
               ),
