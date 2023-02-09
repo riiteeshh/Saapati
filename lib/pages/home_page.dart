@@ -15,12 +15,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<MenuItems> _menuItems = [
-    MenuItems('Load Money', Icons.wallet),
-    MenuItems('Request Loan', Icons.request_quote_rounded),
-    MenuItems('Ping Recieve', Icons.handshake_rounded),
-    MenuItems('Statistics', Icons.stacked_bar_chart_rounded),
-    MenuItems('My Cards', EvaIcons.creditCard),
-    MenuItems('Vouchers', Icons.card_giftcard_rounded),
+    MenuItems('Load Money', Icons.wallet, RouteManager.loanPaymentPage),
+    MenuItems('Request Loan', Icons.request_quote_rounded,
+        RouteManager.loanPaymentPage),
+    MenuItems('Ping Recieve', Icons.handshake_rounded,
+        RouteManager.recieveRequestPage),
+    MenuItems('Pay Loan', Icons.receipt_rounded, RouteManager.loanPaymentPage),
+    MenuItems('My Cards', EvaIcons.creditCard, RouteManager.loanPaymentPage),
+    MenuItems('Statistics', Icons.stacked_bar_chart_rounded,
+        RouteManager.loanPaymentPage),
   ];
   List _imageData = [
     'https://cdn.pixabay.com/photo/2018/06/17/20/35/chain-3481377_960_720.jpg',
@@ -30,6 +33,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         actions: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -41,12 +45,12 @@ class _HomePageState extends State<HomePage> {
                       context, RouteManager.loginPage);
                 },
                 child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 24),
+                  margin: const EdgeInsets.symmetric(horizontal: 24),
                   child: badges.Badge(
                     badgeStyle: badges.BadgeStyle(
                       badgeColor: Colors.blue.withOpacity(0.9),
                     ),
-                    badgeAnimation: badges.BadgeAnimation.scale(
+                    badgeAnimation: const badges.BadgeAnimation.scale(
                       animationDuration: Duration(seconds: 1),
                       colorChangeAnimationDuration: Duration(seconds: 1),
                       loopAnimation: true,
@@ -74,7 +78,7 @@ class _HomePageState extends State<HomePage> {
           color: Colors.blue,
           strokeWidth: 3.0,
           onRefresh: () async {
-            await Future.delayed(Duration(milliseconds: 1000));
+            await Future.delayed(const Duration(milliseconds: 1000));
             Navigator.pushReplacementNamed(
                 context, RouteManager.mainLayoutPage);
           },
@@ -179,7 +183,7 @@ class _HomePageState extends State<HomePage> {
                                                   Icons.arrow_downward,
                                                   color: Colors.red,
                                                 )),
-                                            SizedBox(
+                                            const SizedBox(
                                               width: 10,
                                             ),
                                             Container(
@@ -220,7 +224,7 @@ class _HomePageState extends State<HomePage> {
                                                   Icons.arrow_upward,
                                                   color: Colors.yellow,
                                                 )),
-                                            SizedBox(
+                                            const SizedBox(
                                               width: 10,
                                             ),
                                             Container(
@@ -271,43 +275,49 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(fontFamily: 'Poppins', fontSize: 20),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10),
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
                   height: MediaQuery.of(context).size.height * 0.4,
                   child: GridView.builder(
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: _menuItems.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3, childAspectRatio: 0.9),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3, childAspectRatio: 0.9),
                       itemBuilder: (context, index) {
-                        return Card(
-                          elevation: 2,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundColor: Colors.lightBlue,
-                                child: Icon(
-                                  _menuItems[index].menuIcon,
-                                  color: Colors.white,
-                                  size: 40,
+                        return GestureDetector(
+                          onTap: () => Navigator.pushNamed(
+                              context, _menuItems[index].route),
+                          child: Card(
+                            elevation: 2,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                CircleAvatar(
+                                  radius: 30,
+                                  backgroundColor: Colors.lightBlue,
+                                  child: Icon(
+                                    _menuItems[index].menuIcon,
+                                    color: Colors.white,
+                                    size: 40,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Container(
-                                  child: Text(
-                                _menuItems[index].menuName,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontFamily: 'Poppins', color: Colors.blue),
-                              ))
-                            ],
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Container(
+                                    child: Text(
+                                  _menuItems[index].menuName,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.blue),
+                                ))
+                              ],
+                            ),
                           ),
                         );
                       }),

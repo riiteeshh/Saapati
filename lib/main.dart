@@ -15,7 +15,11 @@ class MyApp extends StatelessWidget {
       initialRoute: RouteManager.loginPage,
       onGenerateRoute: RouteManager.generateRoute,
       theme: ThemeData(
-        appBarTheme: const AppBarTheme(elevation: 0, color: Colors.transparent),
+        appBarTheme: const AppBarTheme(
+            elevation: 0,
+            color: Colors.blue,
+            centerTitle: true,
+            titleTextStyle: TextStyle(fontFamily: 'Poppins', fontSize: 18)),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
             unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
             selectedLabelStyle: TextStyle(fontFamily: 'Poppins')),

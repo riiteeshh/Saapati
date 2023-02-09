@@ -19,7 +19,7 @@ class _CarouselState extends State<Carousel> {
     return Stack(
       children: [
         Container(
-            margin: EdgeInsets.only(top: 15),
+            margin: const EdgeInsets.only(top: 15),
             padding: const EdgeInsets.all(10),
             width: double.infinity,
             // height: MediaQuery.of(context).size.height * 0.8,
@@ -29,7 +29,7 @@ class _CarouselState extends State<Carousel> {
                 itemBuilder: ((context, index, realIndex) {
                   return Card(
                     child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
                       child: Container(
                         // padding: EdgeInsets.all(15),
                         width: MediaQuery.of(context).size.width,
@@ -63,7 +63,7 @@ class _CarouselState extends State<Carousel> {
                     enlargeCenterPage: true))),
         Container(
           alignment: Alignment.bottomCenter,
-          padding: EdgeInsets.only(bottom: 10),
+          padding: const EdgeInsets.only(bottom: 10),
           child: new DotsIndicator(
             dotsCount: widget.adsItems.length,
             position: currentIndexPage.toDouble(),
