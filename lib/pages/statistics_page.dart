@@ -12,7 +12,7 @@ class StatisticsPage extends StatefulWidget {
 class _StatisticsPageState extends State<StatisticsPage> {
   final List<MenuItems> _menuItems = [
     MenuItems(
-        'Bar Grpah', Icons.bar_chart_rounded, RouteManager.mainLayoutPage),
+        'Bar Graph', Icons.bar_chart_rounded, RouteManager.mainLayoutPage),
     MenuItems(
         'Pie Chart', Icons.pie_chart_rounded, RouteManager.mainLayoutPage),
   ];
