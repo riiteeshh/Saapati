@@ -17,13 +17,13 @@ class _HomePageState extends State<HomePage> {
   final List<MenuItems> _menuItems = [
     MenuItems('Load Money', Icons.wallet, RouteManager.loanPaymentPage),
     MenuItems('Request Loan', Icons.request_quote_rounded,
-        RouteManager.loanPaymentPage),
+        RouteManager.loanRequestPage),
     MenuItems('Ping Recieve', Icons.handshake_rounded,
         RouteManager.recieveRequestPage),
     MenuItems('Pay Loan', Icons.receipt_rounded, RouteManager.loanPaymentPage),
-    MenuItems('My Cards', EvaIcons.creditCard, RouteManager.loanPaymentPage),
+    MenuItems('My Cards', EvaIcons.creditCard, RouteManager.myCardPage),
     MenuItems('Statistics', Icons.stacked_bar_chart_rounded,
-        RouteManager.loanPaymentPage),
+        RouteManager.statisticsPage),
   ];
   List _imageData = [
     'https://cdn.pixabay.com/photo/2018/06/17/20/35/chain-3481377_960_720.jpg',

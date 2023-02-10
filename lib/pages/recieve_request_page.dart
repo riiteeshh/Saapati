@@ -117,7 +117,7 @@ class _RecieveRequestPageState extends State<RecieveRequestPage> {
                             'Ritesh Pandey',
                             style: TextStyle(fontFamily: 'Poppins'),
                           ),
-                          subtitle: Text('Total:Rs. 1232'),
+                          subtitle: Text('Total: Rs.1232'),
                           trailing: Container(
                             width: 75,
                             height: 30,
