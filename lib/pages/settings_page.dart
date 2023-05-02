@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saapati_app/components/settings_list_tiles.dart';
+import 'package:saapati_app/routes/routes.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -90,10 +91,16 @@ class _SettingsPageState extends State<SettingsPage> {
               title: 'Bio-metrics',
               subtitle: 'Set your bio-metric info',
               leading: Icons.fingerprint_rounded),
-          SettingsListTiles(
-              title: 'Log-Out',
-              subtitle: 'Log-out of the current account',
-              leading: Icons.logout_rounded)
+          GestureDetector(
+            onTap: () {
+              Navigator.popUntil(context, (route) => route.isFirst);
+              Navigator.pushReplacementNamed(context, RouteManager.loginPage);
+            },
+            child: SettingsListTiles(
+                title: 'Log-Out',
+                subtitle: 'Log-out of the current account',
+                leading: Icons.logout_rounded),
+          )
         ],
       ),
     );

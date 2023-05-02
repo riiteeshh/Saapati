@@ -39,11 +39,6 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               GestureDetector(
-                onTap: () {
-                  Navigator.popUntil(context, (route) => route.isFirst);
-                  Navigator.pushReplacementNamed(
-                      context, RouteManager.loginPage);
-                },
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 24),
                   child: badges.Badge(
