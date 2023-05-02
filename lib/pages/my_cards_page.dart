@@ -15,7 +15,7 @@ class _MyCardPageState extends State<MyCardPage> {
         'Ritesh Pandey',
         '1281818181818181',
         'https://play-lh.googleusercontent.com/B_vXZ4UUXc242bE-mFHIst69QUA3bPnzANcd6piCjBW7aas3mKpeC4Fsj_4tBkmvS7c',
-        Colors.red[200]!),
+        Colors.red),
     CardDetails(
         'E-sewa',
         'Ritesh Pandey',

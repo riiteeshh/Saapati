@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 18,
                       ),
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 10),

@@ -1,6 +1,8 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:saapati_app/pages/home_page.dart';
+import 'package:saapati_app/pages/settings_page.dart';
+import 'package:saapati_app/pages/transaction_page.dart';
 
 class MainLayoutPage extends StatefulWidget {
   const MainLayoutPage({super.key});
@@ -12,9 +14,9 @@ class MainLayoutPage extends StatefulWidget {
 class _MainLayoutPageState extends State<MainLayoutPage> {
   List<Widget> _pages = <Widget>[
     HomePage(),
-    Text('Transaction'),
+    TransactionPage(),
     Text('Loan'),
-    Text('Settings')
+    SettingsPage()
   ];
   int _selectedPage = 0;
   @override
